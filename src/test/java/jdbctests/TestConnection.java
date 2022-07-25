@@ -6,7 +6,8 @@ import static java.sql.DriverManager.getConnection;
 
 public class TestConnection {
     public static void main(String[] args) throws SQLException {
-        String dbUrl = "jdbc:oracle:thin:@44.201.250.13:1521:XE";// this is the connection string. In real life, this will be either set, or given to me
+        // this is the connection string. In real life, this will be either set, or given to me
+        String dbUrl = "jdbc:oracle:thin:@44.201.250.13:1521:XE";
         String dbUsername = "hr";
         String dbPassword = "hr";
 
@@ -34,7 +35,10 @@ public class TestConnection {
         //move to he third row
         resultSet.next();
         System.out.println(resultSet.getInt(1) + " - " + resultSet.getString(2));
+        // to make it easier, for automation purpose, we can use loop
 
+        // so, while it is moving to the next row, it is also applying the row formula
+        // this loop is dynamic, so it will stop executing the code when there are no more rows
        while(resultSet.next()){
 
            System.out.println(resultSet.getInt(1) + " - " + resultSet.getString(2));
